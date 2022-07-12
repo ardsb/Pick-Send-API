@@ -12,7 +12,7 @@ import java.util.List;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/api/v1/user")
+@RequestMapping("/api/user")
 public class UserController {
 
     @Autowired
@@ -28,7 +28,6 @@ public class UserController {
         return userRepository.save(user);
     }
 
-    // build get employee by id REST API
     @GetMapping("{id}")
     public ResponseEntity<net.javaguides.springboot.model.User> getUserById(@PathVariable  long id){
         net.javaguides.springboot.model.User user =  userRepository.findById(id)

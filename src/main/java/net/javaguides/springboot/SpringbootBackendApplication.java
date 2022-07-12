@@ -1,6 +1,8 @@
 package net.javaguides.springboot;
 
+import net.javaguides.springboot.model.Package;
 import net.javaguides.springboot.model.User;
+import net.javaguides.springboot.repository.PackageRepository;
 import net.javaguides.springboot.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -17,8 +19,31 @@ public class SpringbootBackendApplication implements CommandLineRunner {
 	@Autowired
 	private UserRepository userRepository;
 
+	@Autowired
+	private PackageRepository packageRepository;
+
 	@Override
 	public void run(String... args) throws Exception {
+
+		Package packages = new Package();
+		packages.setSenderName("Mohammed");
+		packages.setSenderAddress("Princess Gate");
+		packages.setSenderContact("07667733");
+		packages.setReceiverName("Ismail");
+		packages.setReceiverAddress("Princess street");
+		packages.setReceiverContact("07667733");
+		packages.setDriverName("yoosuf");
+		packages.setDriverContact("07667733");
+		packages.setFromOperationalCentre("colombo 12");
+		packages.setToOperationalCentre("colombo 4");
+		packages.setHeight("12");
+		packages.setWeight("12");
+		packages.setLength("12");
+		packages.setWidth("12");
+		packages.setPrice(1200);
+		packages.setType(2);
+		packages.setStatus(4);
+		packageRepository.save(packages);
 
 		User user = new User();
 		user.setFirstName("Mohammed");
