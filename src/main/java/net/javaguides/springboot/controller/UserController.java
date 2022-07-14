@@ -28,6 +28,7 @@ public class UserController {
         return userRepository.save(user);
     }
 
+    // build get employee by id REST API
     @GetMapping("{id}")
     public ResponseEntity<net.javaguides.springboot.model.User> getUserById(@PathVariable  long id){
         net.javaguides.springboot.model.User user =  userRepository.findById(id)

@@ -29,6 +29,9 @@ public class Package {
     @Column(name = "sender_contact")
     private String senderContact;
 
+    @Column(name="sender_availability")
+    private String senderAvailability;
+
     @Column(name = "receiver_name")
     private String receiverName;
 
@@ -38,35 +41,15 @@ public class Package {
     @Column(name = "receiver_address")
     private String receiverAddress;
 
-    @Column(name = "driver_name")
-    private String driverName;
-
-    @Column(name = "driver_contact")
-    private String driverContact;
-
-    @Column(name = "from_operational_Centre")
-    private String fromOperationalCentre;
-
-    @Column(name = "to_operational_Centre")
-    private String toOperationalCentre;
-
     @Column(name = "weight")
     private String weight;
 
-    @Column(name = "height")
-    private String height;
-
-    @Column(name = "width")
-    private String width;
-
-    @Column(name = "length")
-    private String length;
+    @Column(name = "size")
+    private String size;
 
     @Column(name = "price")
     private float price;
 
-    @Column(name = "status")
-    private int status;
 
     @Column(name = "type")
     private int type;
