@@ -1,4 +1,4 @@
-package net.javaguides.springboot.model;
+package api.picksend.springboot.model;
 
 
 import lombok.AllArgsConstructor;
@@ -48,11 +48,17 @@ public class Package {
     private String size;
 
     @Column(name = "price")
-    private float price;
+    private String price;
 
 
     @Column(name = "type")
-    private int type;
+    private String type;
+
+    @Column(name = "package_status")
+    private String packageStatus;
+
+    @Column(name = "date_created")
+    private String dateCreated;
 
 
 

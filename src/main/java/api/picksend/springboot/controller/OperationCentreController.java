@@ -1,10 +1,8 @@
-package net.javaguides.springboot.controller;
+package api.picksend.springboot.controller;
 
-import net.javaguides.springboot.exception.ResourceNotFoundException;
-import net.javaguides.springboot.model.OperationCenter;
-import net.javaguides.springboot.model.Package;
-import net.javaguides.springboot.repository.OperationCenterRepository;
-import net.javaguides.springboot.repository.PackageRepository;
+import api.picksend.springboot.exception.ResourceNotFoundException;
+import api.picksend.springboot.model.OperationCenter;
+import api.picksend.springboot.repository.OperationCenterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

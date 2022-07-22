@@ -1,13 +1,8 @@
-package net.javaguides.springboot;
+package api.picksend.springboot;
 
-import net.javaguides.springboot.model.OperationCenter;
-import net.javaguides.springboot.model.Package;
-import net.javaguides.springboot.model.PackageCharges;
-import net.javaguides.springboot.model.User;
-import net.javaguides.springboot.repository.OperationCenterRepository;
-import net.javaguides.springboot.repository.PackageChargesRepository;
-import net.javaguides.springboot.repository.PackageRepository;
-import net.javaguides.springboot.repository.UserRepository;
+import api.picksend.springboot.model.*;
+import api.picksend.springboot.model.Package;
+import api.picksend.springboot.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -24,6 +19,9 @@ public class SpringbootBackendApplication implements CommandLineRunner {
 	private UserRepository userRepository;
 
 	@Autowired
+	private PackageTracksRepository packageTracksRepository;
+
+	@Autowired
 	private OperationCenterRepository operationCenterRepository;
 
 	@Autowired
@@ -36,6 +34,11 @@ public class SpringbootBackendApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 
+		PackageTracks packageTracks = new PackageTracks();
+		packageTracks.setPackageId("2");
+		packageTracks.setPackageStatus("Picked Up Deliver");
+		packageTracks.setDateCreated("2/03/2022");
+		packageTracksRepository.save(packageTracks);
 
 		//adding new packages
 		Package packages = new Package();
@@ -49,10 +52,32 @@ public class SpringbootBackendApplication implements CommandLineRunner {
 
 		packages.setWeight("12");
 		packages.setSize("4*4");
-		packages.setPrice(1200);
-		packages.setType(2);
+		packages.setPrice("1200");
+		packages.setType("Food");
+		packages.setPackageStatus("Pending to send");
+		packages.setDateCreated("2/04/2021");
 		packages.setSenderAvailability("");
 		packageRepository.save(packages);
+
+		Package packages2 = new Package();
+		packages2.setSenderName("iqbal");
+		packages2.setSenderAddress(" maligawatte Gate");
+		packages2.setSenderContact("076611113");
+		packages2.setReceiverName("arkam");
+		packages2.setReceiverAddress("vavuvinya street");
+		packages2.setReceiverContact("07667733");
+
+
+		packages2.setWeight("12");
+		packages2.setSize("4*4");
+		packages2.setPrice("1200");
+		packages2.setType("Food");
+		packages2.setPackageStatus("Pending to send");
+		packages2.setDateCreated("2/04/2021");
+		packages2.setSenderAvailability("");
+		packageRepository.save(packages2);
+
+
 
 
         //adding new users

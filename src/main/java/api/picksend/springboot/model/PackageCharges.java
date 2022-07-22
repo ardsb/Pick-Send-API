@@ -1,4 +1,4 @@
-package net.javaguides.springboot.model;
+package api.picksend.springboot.model;
 
 
 import lombok.AllArgsConstructor;

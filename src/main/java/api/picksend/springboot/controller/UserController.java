@@ -1,8 +1,8 @@
-package net.javaguides.springboot.controller;
+package api.picksend.springboot.controller;
 
-import net.javaguides.springboot.exception.ResourceNotFoundException;
-import net.javaguides.springboot.model.User;
-import net.javaguides.springboot.repository.UserRepository;
+import api.picksend.springboot.exception.ResourceNotFoundException;
+import api.picksend.springboot.model.User;
+import api.picksend.springboot.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,28 +19,28 @@ public class UserController {
     private UserRepository userRepository;
 
     @GetMapping
-    public List<net.javaguides.springboot.model.User> getAllUser(){
+    public List<User> getAllUser(){
         return userRepository.findAll();
     }
 
     @PostMapping
-    public net.javaguides.springboot.model.User createUser(@RequestBody net.javaguides.springboot.model.User user) {
+    public User createUser(@RequestBody User user) {
         return userRepository.save(user);
     }
 
     // build get employee by id REST API
     @GetMapping("{id}")
-    public ResponseEntity<net.javaguides.springboot.model.User> getUserById(@PathVariable  long id){
-        net.javaguides.springboot.model.User user =  userRepository.findById(id)
+    public ResponseEntity<User> getUserById(@PathVariable  long id){
+        User user =  userRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("User not exist with id:" + id));
         return ResponseEntity.ok(user);
     }
 
 
     @PutMapping("{id}")
-    public ResponseEntity<User> updateUser(@PathVariable long id, @RequestBody net.javaguides.springboot.model.User userDetails) {
+    public ResponseEntity<User> updateUser(@PathVariable long id, @RequestBody User userDetails) {
          User updateUser = userRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Employee not exist with id: " + id));
+                .orElseThrow(() -> new ResourceNotFoundException("User not exist with id: " + id));
 
         updateUser.setFirstName(userDetails.getFirstName());
         updateUser.setLastName(userDetails.getLastName());

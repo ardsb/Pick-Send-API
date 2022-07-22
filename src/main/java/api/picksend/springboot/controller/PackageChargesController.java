@@ -1,7 +1,8 @@
-package net.javaguides.springboot.controller;
+package api.picksend.springboot.controller;
 
 
-import net.javaguides.springboot.repository.PackageChargesRepository;
+import api.picksend.springboot.model.PackageCharges;
+import api.picksend.springboot.repository.PackageChargesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,12 +17,12 @@ public class PackageChargesController {
     private PackageChargesRepository packageChargesRepository;
 
     @GetMapping
-    public List<net.javaguides.springboot.model.PackageCharges> getPackageChargesDetail(){
+    public List<PackageCharges> getPackageChargesDetail(){
         return packageChargesRepository.findAll();
     }
 
     @PostMapping
-    public net.javaguides.springboot.model.PackageCharges createPackageAmount(@RequestBody net.javaguides.springboot.model.PackageCharges packagesCharges) {
+    public PackageCharges createPackageAmount(@RequestBody PackageCharges packagesCharges) {
         return packageChargesRepository.save(packagesCharges);
     }
 
