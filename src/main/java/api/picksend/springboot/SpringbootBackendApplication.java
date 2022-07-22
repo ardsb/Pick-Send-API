@@ -18,8 +18,6 @@ public class SpringbootBackendApplication implements CommandLineRunner {
 	@Autowired
 	private UserRepository userRepository;
 
-	@Autowired
-	private PackageTracksRepository packageTracksRepository;
 
 	@Autowired
 	private OperationCenterRepository operationCenterRepository;
@@ -34,16 +32,11 @@ public class SpringbootBackendApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 
-		PackageTracks packageTracks = new PackageTracks();
-		packageTracks.setPackageId("2");
-		packageTracks.setPackageStatus("Picked Up Deliver");
-		packageTracks.setDateCreated("2/03/2022");
-		packageTracksRepository.save(packageTracks);
 
 		//adding new packages
 		Package packages = new Package();
 		packages.setSenderName("Mohammed");
-		packages.setSenderAddress("Princess Gate");
+		packages.setSenderAddress("Princess Gates");
 		packages.setSenderContact("07667733");
 		packages.setReceiverName("Ismail");
 		packages.setReceiverAddress("Princess street");
