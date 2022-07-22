@@ -2,11 +2,14 @@ package api.picksend.springboot.controller;
 
 import api.picksend.springboot.exception.ResourceNotFoundException;
 import api.picksend.springboot.model.User;
+import api.picksend.springboot.model.UserLoginRequest;
 import api.picksend.springboot.repository.UserRepository;
+import net.bytebuddy.implementation.bytecode.Throw;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -65,4 +68,15 @@ public class UserController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 
     }
+    @PostMapping("/login")
+    public User userLogin(@RequestBody UserLoginRequest loginRequest) {
+        User byEmailIdAndPassword = userRepository.findByEmailIdAndPassword(loginRequest.getEmail(), loginRequest.getPassword());
+        if (byEmailIdAndPassword != null){
+            return byEmailIdAndPassword;
+        }else{
+            throw new ResponseStatusException(
+                    HttpStatus.UNAUTHORIZED, "USER_NOT_FOUND");
+        }
+    }
+
 }

@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Long> {
     // all crud database methods
+   User findByEmailIdAndPassword(String email, String password);
 }
 
 

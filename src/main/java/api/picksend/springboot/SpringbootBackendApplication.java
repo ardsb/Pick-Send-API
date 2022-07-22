@@ -54,7 +54,7 @@ public class SpringbootBackendApplication implements CommandLineRunner {
 		packages.setSize("4*4");
 		packages.setPrice("1200");
 		packages.setType("Food");
-		packages.setPackageStatus("Pending to send");
+		packages.setPackageStatus("WAITING_FOR_PICKUP");
 		packages.setDateCreated("2/04/2021");
 		packages.setSenderAvailability("");
 		packageRepository.save(packages);
@@ -72,7 +72,7 @@ public class SpringbootBackendApplication implements CommandLineRunner {
 		packages2.setSize("4*4");
 		packages2.setPrice("1200");
 		packages2.setType("Food");
-		packages2.setPackageStatus("Pending to send");
+		packages2.setPackageStatus("WAITING_FOR_PICKUP");
 		packages2.setDateCreated("2/04/2021");
 		packages2.setSenderAvailability("");
 		packageRepository.save(packages2);
@@ -84,7 +84,7 @@ public class SpringbootBackendApplication implements CommandLineRunner {
 		User user = new User();
 		user.setFirstName("Mohammed");
 		user.setLastName("Arkam");
-		user.setEmailId("Arkam@gmail.com");
+		user.setEmailId("sender@gmail.com");
 		user.setPassword("test123");
 		user.setUserRole("SENDER");
 		userRepository.save(user);
@@ -92,18 +92,11 @@ public class SpringbootBackendApplication implements CommandLineRunner {
 		User user1 = new User();
 		user1.setFirstName("Mohammed");
 		user1.setLastName("Ismail");
-		user1.setEmailId("Ismail@gmail.com");
+		user1.setEmailId("admin@gmail.com");
 		user1.setPassword("test123");
-		user1.setUserRole("RECEIVER");
+		user1.setUserRole("ADMIN");
 		userRepository.save(user1);
 
-		User user2 = new User();
-		user2.setFirstName("Mohammed");
-		user2.setLastName("Irfan");
-		user2.setEmailId("Irfan@gmail.com");
-		user2.setPassword("test123");
-		user2.setUserRole("RIDER");
-		userRepository.save(user2);
 
 
 		//adding new operation centers

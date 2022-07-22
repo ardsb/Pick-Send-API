@@ -16,6 +16,22 @@ import javax.persistence.*;
 @Table(name = "package")
 public class Package {
 
+    public Package(String senderName, String senderAddress, String senderContact, String senderAvailability, String receiverName, String receiverContact, String receiverAddress, String weight, String size, String price, String type, String packageStatus, String dateCreated) {
+        this.senderName = senderName;
+        this.senderAddress = senderAddress;
+        this.senderContact = senderContact;
+        this.senderAvailability = senderAvailability;
+        this.receiverName = receiverName;
+        this.receiverContact = receiverContact;
+        this.receiverAddress = receiverAddress;
+        this.weight = weight;
+        this.size = size;
+        this.price = price;
+        this.type = type;
+        this.packageStatus = packageStatus;
+        this.dateCreated = dateCreated;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;

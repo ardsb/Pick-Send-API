@@ -3,11 +3,13 @@ package api.picksend.springboot.controller;
 
 import api.picksend.springboot.exception.ResourceNotFoundException;
 import api.picksend.springboot.model.Package;
+import api.picksend.springboot.model.PackageCreationRequest;
 import api.picksend.springboot.repository.PackageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @CrossOrigin("*")
@@ -24,8 +26,23 @@ public class PackageController {
     }
 
     @PostMapping
-    public Package createPackage(@RequestBody Package packages) {
-        return packageRepository.save(packages);
+    public Package createPackage(@RequestBody PackageCreationRequest packageCreationRequest) {
+
+
+        Package packageCreated = new Package(packageCreationRequest.getSenderName(),
+                packageCreationRequest.getSenderAddress(),
+                packageCreationRequest.getSenderContact(),
+                packageCreationRequest.getSenderAvailability(),
+                packageCreationRequest.getReceiverName(),
+                packageCreationRequest.getReceiverContact(),
+                packageCreationRequest.getReceiverAddress(),
+                packageCreationRequest.getWeight(),
+                packageCreationRequest.getSize(),
+                packageCreationRequest.getPrice(),
+                packageCreationRequest.getType(),
+                "WAITING_FOR_PICKUP",
+                new Date().toString());
+        return packageRepository.save(packageCreated);
     }
 
 
